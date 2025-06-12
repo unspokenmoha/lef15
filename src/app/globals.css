@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* إعداد الخط والخلفية */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  background: #f9f9f9; /* أو اللون المناسب */
+  color: #333;
+  font-family: 'Open Sans', 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+}
+
+html {
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  @apply text-inherit no-underline;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* nprogress */
+#nprogress {
+  pointer-events: none;
+}
+#nprogress .bar {
+  background: #0070f3;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 0px 4px 4px 0px;
+}
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #0070f3, 0 0 5px #0070f3;
+  opacity: 1.0;
+  transform: rotate(3deg) translate(0px, -4px);
+}
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+  border: solid 2px transparent;
+  border-top-color: #0070f3;
+  border-left-color: #0070f3;
+  border-radius: 50%;
+  animation: nprogress-spinner 400ms linear infinite;
+}
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
