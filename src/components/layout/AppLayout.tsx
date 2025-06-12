@@ -3,8 +3,6 @@
 import Footer from "../footer/Footer";
 import Header from '../header/Header';
 import MobileNavigationBar from "../mobile-navigation/MobileNavigationBar";
-// import Sticky from "@component/sticky/Sticky";
-// import Topbar from "@component/topbar/Topbar";
 import Head from "next/head";
 import React from "react";
 
@@ -17,29 +15,32 @@ type Props = {
 const AppLayout: React.FC<Props> = ({
   children,
   navbar,
-  title = "React Next.js Ecommerce Template",
+  title = "متجري - التسوق الإلكتروني الأمثل",
 }) => (
   <>
     <Head>
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta name="description" content="متجرك الإلكتروني المتكامل للتسوق الآمن والموثوق" />
     </Head>
 
-   {/* <Topbar /> */}
+    {/* Header with fixed positioning */}
+    <Header />
 
-    <div className="shadow-md">
-  <Header />
-</div>
+    {/* Main Content */}
+    <main className="min-h-screen">
+      {navbar ? (
+        <div className="pt-32">{navbar}</div>
+      ) : (
+        <div>{children}</div>
+      )}
+    </main>
 
-
-    {navbar ? (
-      <div className="section-after-sticky">{navbar}</div>
-    ) : (
-      <div className="section-after-sticky">{children}</div>
-    )}
-
+    {/* Mobile Navigation */}
     <MobileNavigationBar />
+    
+    {/* Footer */}
     <Footer />
   </>
 );
